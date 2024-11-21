@@ -12,7 +12,7 @@ public class Client {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter your name: ");
         String name = scanner.nextLine();
-        Socket socket = new Socket("localhost", 1500);
+        Socket socket = new Socket("localhost", 1300);
         Client client = new Client(socket, name);
         client.listenMessage();
         client.sendMessage();
@@ -47,7 +47,7 @@ public class Client {
             Scanner scanner = new Scanner(System.in);
             while(socket.isConnected()){
                 String message = scanner.nextLine();
-                bufferedWriter.write(message);
+                bufferedWriter.write(name + ": " + message);
                 bufferedWriter.newLine();
                 bufferedWriter.flush();
             }
